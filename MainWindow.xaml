@@ -1,0 +1,62 @@
+﻿<Window
+    Height="700"
+    Title="MainWindow"
+    Width="900"
+    x:Class="WpfBrowser.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Toolbar  -->
+        <DockPanel
+            Background="#2C3E50"
+            LastChildFill="False"
+            Margin="10">
+            <Button
+                Background="#34495E"
+                BorderBrush="#2C3E50"
+                Click="BackButton_Click"
+                Content="Zurück"
+                Foreground="White"
+                Margin="0,0,10,0" />
+            <Button
+                Background="#34495E"
+                BorderBrush="#2C3E50"
+                Click="ForwardButton_Click"
+                Content="Vorwärts"
+                Foreground="White"
+                Margin="0,0,10,0" />
+            <Button
+                Background="#34495E"
+                BorderBrush="#2C3E50"
+                Click="DevToolsButton_Click"
+                Content="Dev Tools"
+                Foreground="White"
+                Margin="0,0,10,0" />
+            <TextBox
+                BorderBrush="#2C3E50"
+                BorderThickness="2"
+                Name="textBox"
+                Width="400" />
+            <Button
+                Background="#34495E"
+                BorderBrush="#2C3E50"
+                Click="RefreshButton_Click"
+                Content="Aktualisieren"
+                Foreground="White"
+                Width="71.997" />
+        </DockPanel>
+
+        <!--  Browser  -->
+        <cefSharp:ChromiumWebBrowser
+            Address="https://www.google.com"
+            Grid.Row="1"
+            Margin="10"
+            Name="browser" />
+    </Grid>
+</Window>
